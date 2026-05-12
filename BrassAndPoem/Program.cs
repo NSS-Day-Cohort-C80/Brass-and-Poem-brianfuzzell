@@ -78,12 +78,11 @@ string choice = null;
 while (choice != "5")
 {
     Console.WriteLine(@"Choose an option from the menu:
-                        0.
-                        1.
-                        2.
-                        3.
-                        4.
-                        5.");
+                        1. Display all products
+                        2. Delete a product
+                        3. Add a new product
+                        4. Update product properties
+                        5. Exit");
 
     choice = Console.ReadLine();
 
@@ -91,20 +90,35 @@ while (choice != "5")
     {
         Console.WriteLine("No option was selected. Please try again.");
     }
+    else if (choice == "1")
+    {
+        DisplayMenu();
+    }
+    else if (choice == "2")
+    {
+        DisplayAllProducts(products, productTypes);
+    }
+    else if (choice == "3")
+    {
+        DeleteProduct(products, productTypes);
+    }
+    else if (choice == "4")
+    {
+        AddProduct(products, productTypes);
+    }
     else if (choice == "5")
     {
-        Console.WriteLine($"{choice} is correct! Exiting the program.");
-    }
-    else
-    {
-        Console.WriteLine($"Sorry, {choice} is incorrect. Try again.");
-    }
+        UpdateProduct(products, productTypes);
+    }  
 }
 
-
-/* void DisplayMenu()
+void DisplayMenu()
 {
-    throw new NotImplementedException();
+    Console.WriteLine(@"1. Display all products
+                        2. Delete a product
+                        3. Add a new product
+                        4. Update product properties
+                        5. Exit");
 }
 
 void DisplayAllProducts(List<Product> products, List<ProductType> productTypes)
@@ -125,7 +139,7 @@ void AddProduct(List<Product> products, List<ProductType> productTypes)
 void UpdateProduct(List<Product> products, List<ProductType> productTypes)
 {
     throw new NotImplementedException();
-} */
+}
 
 // don't move or change this!
 public partial class Program { }
