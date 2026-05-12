@@ -102,7 +102,7 @@ while (choice != "5")
 }
 
 
-void DisplayMenu()
+/* void DisplayMenu()
 {
     throw new NotImplementedException();
 }
@@ -125,7 +125,7 @@ void AddProduct(List<Product> products, List<ProductType> productTypes)
 void UpdateProduct(List<Product> products, List<ProductType> productTypes)
 {
     throw new NotImplementedException();
-}
+} */
 
 // don't move or change this!
 public partial class Program { }
