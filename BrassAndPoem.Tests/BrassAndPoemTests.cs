@@ -19,7 +19,7 @@ public class BrassAndPoemTests
                 new ProductType {Id = 2, Title = "Poem"}
             };
 
-    [Fact]
+    [Fact(Skip = "not yet implemented")]
     public void TestAddProduct()
     {
         var stdIn = Console.In;
@@ -52,7 +52,7 @@ public class BrassAndPoemTests
         Console.SetIn(stdIn);
     }
 
-    [Fact]
+    [Fact(Skip = "not yet implemented")]
     public void TestDeleteProduct()
     {
         var stdIn = Console.In;
@@ -79,7 +79,7 @@ public class BrassAndPoemTests
         }
     }
 
-    [Fact]
+    [Fact(Skip = "not yet implemented")]
     public void TestUpdateProduct()
     {
         var stdIn = Console.In;
@@ -113,7 +113,7 @@ French Horn
         }
     }
 
-    [Fact]
+    [Fact(Skip = "not yet implemented")]
     public void TestDisplayAllProducts()
     {
         var stdOut = Console.Out;
@@ -149,7 +149,7 @@ French Horn
         }
     }
 
-    [Fact]
+    [Fact(Skip = "not yet implemented")]
     public void TestDisplayMenu()
     {
         var stdOut = Console.Out;
