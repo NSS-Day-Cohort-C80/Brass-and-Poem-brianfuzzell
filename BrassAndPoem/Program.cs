@@ -77,12 +77,9 @@ Console.WriteLine(greeting);
 string choice = null;
 while (choice != "5")
 {
-    Console.WriteLine(@"Choose an option from the menu:
-                        1. Display all products
-                        2. Delete a product
-                        3. Add a new product
-                        4. Update product properties
-                        5. Exit");
+    Console.WriteLine(@"Choose an option from the menu:");
+
+    DisplayMenu();
 
     choice = Console.ReadLine();
 
@@ -92,21 +89,17 @@ while (choice != "5")
     }
     else if (choice == "1")
     {
-        DisplayMenu();
+        DisplayAllProducts(products, productTypes);
     }
     else if (choice == "2")
     {
-        DisplayAllProducts(products, productTypes);
+        DeleteProduct(products, productTypes);
     }
     else if (choice == "3")
     {
-        DeleteProduct(products, productTypes);
-    }
-    else if (choice == "4")
-    {
         AddProduct(products, productTypes);
     }
-    else if (choice == "5")
+    else if (choice == "4")
     {
         UpdateProduct(products, productTypes);
     }  
@@ -115,10 +108,10 @@ while (choice != "5")
 void DisplayMenu()
 {
     Console.WriteLine(@"1. Display all products
-                        2. Delete a product
-                        3. Add a new product
-                        4. Update product properties
-                        5. Exit");
+2. Delete a product
+3. Add a new product
+4. Update product properties
+5. Exit");
 }
 
 void DisplayAllProducts(List<Product> products, List<ProductType> productTypes)
