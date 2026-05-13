@@ -85,6 +85,10 @@ while (choice != "5")
     {
         UpdateProduct(products, productTypes);
     }
+    else if (choice == "5")
+    {
+        Console.WriteLine("Goodbye!");
+    }
 }
 
 void DisplayMenu()
@@ -114,9 +118,16 @@ void DeleteProduct(List<Product> products, List<ProductType> productTypes)
 
     Console.WriteLine("Which product do you want to delete?");
 
-    int deletedItem = int.Parse(Console.ReadLine().Trim());
+    string deletedItem = Console.ReadLine().Trim();
 
-    Product deletedProduct = products[deletedItem - 1];
+    while (string.IsNullOrEmpty(deletedItem))
+    {
+        Console.WriteLine("You didn't choose anything, try again!");
+
+        deletedItem = Console.ReadLine().Trim();
+    }
+
+    Product deletedProduct = products[int.Parse(deletedItem) - 1];
 
     products.Remove(deletedProduct);
 
