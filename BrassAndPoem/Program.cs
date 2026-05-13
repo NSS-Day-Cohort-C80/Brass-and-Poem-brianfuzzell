@@ -127,7 +127,36 @@ void DeleteProduct(List<Product> products, List<ProductType> productTypes)
 
 void AddProduct(List<Product> products, List<ProductType> productTypes)
 {
-    throw new NotImplementedException();
+    Console.WriteLine("Enter the name of the product you want to add: ");
+    string name = Console.ReadLine().Trim();
+
+    Console.WriteLine("Please enter the price: ");
+    decimal price = decimal.Parse(Console.ReadLine().Trim());
+
+    Product chosenCategory = null;
+
+    Console.WriteLine("Please enter the product type: ");
+
+    for (int i = 0; i < productTypes.Count; i++)
+    {
+        Console.WriteLine($"{i + 1}. {productTypes[i].Title}");
+    }
+    int type = int.Parse(Console.ReadLine().Trim());
+
+    while (type > productTypes.Count || type < 1)
+    {
+        Console.WriteLine($"Choose a number between 1 and {productTypes.Count}");
+        type = int.Parse(Console.ReadLine().Trim());
+    }
+    List<Product> categories = products.Where(product => product.ProductTypeId == productTypes[type - 1].Id).ToList();
+
+    products.Add(new Product()
+    {
+        Name = name,
+        Price = price,
+        ProductTypeId = productTypes[type - 1].Id
+    });
+    Console.WriteLine($"{name}");
 }
 
 void UpdateProduct(List<Product> products, List<ProductType> productTypes)
