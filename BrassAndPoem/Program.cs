@@ -5,50 +5,32 @@ List<Product> products = new List<Product>()
     new Product()
     {
         Name = "Trumpet",
-        Price = 299.99M,
+        Price = 150.99M,
         ProductTypeId = 1,
     },
     new Product()
     {
         Name = "Trombone",
-        Price = 1449.99M,
+        Price = 246.99M,
         ProductTypeId = 1
-    },
-    new Product()
-    {
-        Name = "The Waste Land by T.S. Eliot",
-        Price = 12.99M,
-        ProductTypeId = 2
-    },
-    new Product()
-    {
-        Name = "French Horn",
-        Price = 899.99M,
-        ProductTypeId = 1
-    },
-    new Product()
-    {
-        Name = "Leaves of Grass by Walt Whitman",
-        Price = 9.99M,
-        ProductTypeId = 2
     },
     new Product()
     {
         Name = "Tuba",
-        Price = 1200.99M,
+        Price = 1250.99M,
         ProductTypeId = 1
     },
     new Product()
     {
-        Name = "Ariel by Sylvia Plath",
-        Price = 14.99M,
+        Name = "Ozymandias",
+        Price = 12350.99M,
         ProductTypeId = 2
     },
     new Product()
     {
-        Name = "Flugelhorn",
-        Price = 599.99M,
-        ProductTypeId = 1
+        Name = "Leaves of Grass",
+        Price = 15650.99M,
+        ProductTypeId = 2
     }
 };
 
@@ -102,7 +84,7 @@ while (choice != "5")
     else if (choice == "4")
     {
         UpdateProduct(products, productTypes);
-    }  
+    }
 }
 
 void DisplayMenu()
@@ -116,7 +98,11 @@ void DisplayMenu()
 
 void DisplayAllProducts(List<Product> products, List<ProductType> productTypes)
 {
-    throw new NotImplementedException();
+    for (int i = 0; i < products.Count; i++)
+    {
+        ProductType matchedProduct = productTypes.FirstOrDefault(product => product.Id == products[i].ProductTypeId);
+        Console.WriteLine(@$"{i + 1}. {products[i].Name} | {matchedProduct.Title} | {products[i].Price}");
+    }
 }
 
 void DeleteProduct(List<Product> products, List<ProductType> productTypes)
