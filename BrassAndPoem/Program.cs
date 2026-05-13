@@ -133,8 +133,6 @@ void AddProduct(List<Product> products, List<ProductType> productTypes)
     Console.WriteLine("Please enter the price: ");
     decimal price = decimal.Parse(Console.ReadLine().Trim());
 
-    Product chosenCategory = null;
-
     Console.WriteLine("Please enter the product type: ");
 
     for (int i = 0; i < productTypes.Count; i++)
@@ -161,7 +159,63 @@ void AddProduct(List<Product> products, List<ProductType> productTypes)
 
 void UpdateProduct(List<Product> products, List<ProductType> productTypes)
 {
-    throw new NotImplementedException();
+    DisplayAllProducts(products, productTypes);
+
+    Product chosenProduct = null;
+
+    Console.WriteLine("Which product should we update?");
+
+    int updatedItem = int.Parse(Console.ReadLine().Trim());
+
+    Product productToUpdate = products[updatedItem - 1];
+
+    Console.WriteLine(@$"Here are this product's current details:
+    Name: {productToUpdate.Name}
+    Price: ${productToUpdate.Price}
+    Type: {productToUpdate.ProductTypeId}");
+
+    Console.WriteLine($"To update the name, enter the new name now: ");
+
+    string newName = Console.ReadLine()!.Trim();
+
+    if (!string.IsNullOrEmpty(newName))
+    {
+        productToUpdate.Name = newName;
+    }
+
+    Console.WriteLine($"To update the price, enter the new price now: ");
+
+    string newPrice = Console.ReadLine()!.Trim();
+
+    if (!string.IsNullOrEmpty(newPrice))
+    {
+        productToUpdate.Price = decimal.Parse(newPrice);
+    }
+
+    Console.WriteLine($"Product Types:");
+
+    for (int i = 0; i < productTypes.Count; i++)
+    {
+        Console.WriteLine($"{i + 1}. {productTypes[i].Title}");
+    }
+
+    Console.WriteLine($"The current product type is {productToUpdate.ProductTypeId}. To update the type, enter the new type now: ");
+
+    string newType = Console.ReadLine()!.Trim();
+
+    if (!string.IsNullOrEmpty(newType))
+    {
+        productToUpdate.ProductTypeId = int.Parse(newType);
+    }
+
+    Console.WriteLine(@$"The product's new details are:
+    Name: {productToUpdate.Name}
+    Price: ${productToUpdate.Price}
+    Product Type: {productToUpdate.ProductTypeId}
+    
+    Product is updated!");
+
+    chosenProduct = productToUpdate;
 }
 
 // don't move or change this!
