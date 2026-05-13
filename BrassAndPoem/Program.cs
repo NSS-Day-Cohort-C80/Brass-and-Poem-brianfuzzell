@@ -108,7 +108,21 @@ void DisplayAllProducts(List<Product> products, List<ProductType> productTypes)
 
 void DeleteProduct(List<Product> products, List<ProductType> productTypes)
 {
-    throw new NotImplementedException();
+    DisplayAllProducts(products, productTypes);
+
+    Product chosenProduct = null;
+
+    Console.WriteLine("Which product do you want to delete?");
+
+    int deletedItem = int.Parse(Console.ReadLine().Trim());
+
+    Product deletedProduct = products[deletedItem - 1];
+
+    products.Remove(deletedProduct);
+
+    Console.WriteLine($"{deletedProduct.Name} has been deleted.");
+
+    chosenProduct = deletedProduct;
 }
 
 void AddProduct(List<Product> products, List<ProductType> productTypes)
