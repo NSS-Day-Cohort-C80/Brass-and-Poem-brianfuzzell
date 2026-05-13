@@ -98,10 +98,11 @@ void DisplayMenu()
 
 void DisplayAllProducts(List<Product> products, List<ProductType> productTypes)
 {
+    Console.WriteLine("Products:");
     for (int i = 0; i < products.Count; i++)
     {
         ProductType matchedProduct = productTypes.FirstOrDefault(product => product.Id == products[i].ProductTypeId);
-        Console.WriteLine(@$"{i + 1}. {products[i].Name} | {matchedProduct.Title} | {products[i].Price}");
+        Console.WriteLine($"{i + 1}. {products[i].Name} | {matchedProduct.Title} | ${products[i].Price}");
     }
 }
 
